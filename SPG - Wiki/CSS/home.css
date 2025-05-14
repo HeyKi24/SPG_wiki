@@ -1,0 +1,170 @@
+/* Reset de margens e preenchimentos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Importante para evitar problemas com a largura */
+}
+
+/* Geral */
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #000000; /* Preto */
+    color: #00008B; /* Azul claro (texto) */
+    line-height: 1.6;
+}
+
+.corpo {
+    position: relative; /* Necessário para o pseudo-elemento */
+    width: 60%;
+    margin: 0 auto;
+    background-image: url("../IMG/SPG_logo.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding-bottom: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.corpo::before {
+    content: ""; /* Necessário para criar o pseudo-elemento */
+    position: absolute; /* Posiciona o pseudo-elemento */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Escurece o fundo */
+    backdrop-filter: blur(5px); /* Aplica o desfoque */
+    z-index: 0; /* Coloca o pseudo-elemento atrás do conteúdo */
+}
+
+.corpo > * {
+    position: relative; /* Garante que o conteúdo fique acima do pseudo-elemento */
+    z-index: 1; /* Coloca o conteúdo acima do fundo */
+}
+
+
+
+/* Cabeçalho */
+.cabeca {
+    background-color: #add8e6; /* background Azul claro */
+    padding: 1em;
+    text-align: center;
+    border: 2px solid #00008B; /* Borda corrigida */
+}
+
+.cabeca img {
+    max-width: 100px;
+    margin-bottom: 0.5em;
+    border: 2px solid #00008B;
+}
+
+.cabeca ul {
+    border-top: 2px solid #00008B;
+    list-style: none;
+    padding-top: 3px;
+    margin: 0;
+}
+
+.cabeca li {
+    display: inline;
+    margin: 0 1em;
+    padding: 1%;
+}
+
+.cabeca a {
+    color: #00008B; /* Azul claro (links) */
+    font-weight: bold;
+}
+ 
+.treistracinho{
+    display: none;
+}
+
+
+/* Seção principal */
+
+.cabecalho{
+    padding: 1em;
+    background-color: #add8e6a9; /* Azul escuro (fundo da seção) */
+    color: #00008B; /* Azul claro (texto na seção) */
+    margin: 1%;
+    border: 2px solid #00008B;
+    flex: 1 1 30%; /* Cresce, encolhe e tem uma base de 30% */
+    margin: 10px; /* Espaçamento entre os itens */
+}
+
+.post {
+    padding: 1em;
+    background-color: #add8e6a9; /* Azul escuro (fundo da seção) */
+    color: #00008B; /* Azul claro (texto na seção) */
+    margin: 1%;
+    border: 2px solid #00008B;
+    flex: 1 1 30%; /* Cresce, encolhe e tem uma base de 30% */
+    width: 50%;
+}
+
+.postdiv{
+    display: flex;
+    flex-wrap: wrap;/* Permite que os itens se movam para a linha seguinte */
+
+}
+
+.postiside{
+    font-size: 0; /* Remove o espaço entre os elementos */
+}
+
+.postiside p{
+    display: inline-block;
+    width: 60%; /* Opcional: define a largura */
+    box-sizing: border-box;
+    font-size: 16px; /* Restaura o tamanho da fonte */
+    padding: 10px;
+}
+
+.postiside img{
+    display: inline-block;
+    width: 40%; /* Opcional: define a largura */
+    box-sizing: border-box;
+    font-size: 16px; /* Restaura o tamanho da fonte */
+    padding: 10px;
+}
+
+
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #00008B; /* Linha abaixo do título azul claro */
+    padding-bottom: 0.2em;
+}
+
+h2{
+    
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #00008B; /* Linha abaixo do título azul claro */
+    padding-bottom: 0.2em;
+
+}
+p {
+    margin-bottom: 1em;
+}
+
+@media(max-width: 768px) {
+   
+    .corpo {
+        width: 100%;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .treistracinho{
+        display: block;
+    }
+
+    .item {
+        flex: 1 1 100%; /* Em telas menores, os itens ocupam 100% da largura */
+    }
+}
